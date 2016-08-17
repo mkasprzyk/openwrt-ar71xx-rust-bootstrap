@@ -7,7 +7,7 @@ export RUST_RELEASE=${2:-nightly}
 mkdir -p $SDK_ROOT
 
 apt-get update
-apt-get install -y wget bzip2 curl cmake python2.7
+apt-get install -y wget bzip2 curl cmake python2.7 build-essential
 
 curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain $RUST_RELEASE
 
