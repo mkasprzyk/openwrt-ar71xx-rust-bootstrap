@@ -8,8 +8,10 @@ IMAGE = openwrt-ar71xx-rust-bootstrap
 DOCKER = $(shell which docker)
 DOCKER_WORKSPACE = /build
 
+CARGO_OPTS =
+
 TARGET=mips-unknown-linux-musl
-BUILD_CMD = "source ~/.cargo/env && cd ${DOCKER_WORKSPACE} && cargo build --target=${TARGET}"
+BUILD_CMD = "cd ${DOCKER_WORKSPACE} && cargo build --target=${TARGET} ${CARGO_OPTS}"
 
 check:
 	@if [ -z ${PACKAGE} ]; then echo "UNABLE TO FIND Cargo PACKAGE" && exit 1; fi
