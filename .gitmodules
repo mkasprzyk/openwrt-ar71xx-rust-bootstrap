@@ -1,3 +1,0 @@
-[submodule "rust-mq"]
-	path = rust-mq
-	url = https://github.com/inre/rust-mq.git
