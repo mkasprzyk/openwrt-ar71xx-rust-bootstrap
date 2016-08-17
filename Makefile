@@ -20,7 +20,8 @@ toolchain:
 	${DOCKER} build -t ${IMAGE} .
 
 build_linux: 
-	@cp -fr ${PACKAGE} ${LOCAL_WORKSPACE}
+	@mkdir -p ${LOCAL_WORKSPACE}
+	@cp -fr ${PACKAGE}/{Cargo.*,src} ${LOCAL_WORKSPACE}
 	@cp -fr .cargo ${LOCAL_WORKSPACE}
 	${DOCKER} run -v ${LOCAL_WORKSPACE}:${DOCKER_WORKSPACE} ${IMAGE} bash -c ${BUILD_CMD}
 
