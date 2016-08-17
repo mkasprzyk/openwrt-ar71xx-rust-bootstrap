@@ -1,0 +1,10 @@
+language: rust
+
+services:
+  - docker
+
+before_install:
+  - make toolchain
+
+script:
+  - echo
