@@ -26,4 +26,5 @@ cd /usr/bin
 cd -
 
 echo "export STAGING_DIR=$SDK_ROOT/staging_dir" >> ~/.bashrc
+echo "source ~/.cargo/env" >> ~/.bashrc
 
