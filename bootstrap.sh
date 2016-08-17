@@ -7,7 +7,7 @@ export RUST_RELEASE=${2:-nightly}
 mkdir -p $SDK_ROOT
 
 apt-get update
-apt-get install -q -y wget bzip2 curl cmake python2.7 build-essential
+apt-get install -qq -y wget bzip2 curl cmake python2.7 build-essential
 
 curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain $RUST_RELEASE
 
@@ -15,7 +15,7 @@ source $HOME/.cargo/env
 rustup target add mips-unknown-linux-musl
 
 cd /tmp
-    wget -quiet https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/$SDK_RELEASE
+    wget -q https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/$SDK_RELEASE
     tar xjf $SDK_RELEASE --strip-components=1 -C $SDK_ROOT
 cd -
 
