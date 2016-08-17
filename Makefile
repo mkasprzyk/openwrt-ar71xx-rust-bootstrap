@@ -4,7 +4,7 @@ LOCAL_WORKSPACE = build
 PACKAGE_FINGERPRINT = 'Cargo.toml'
 PACKAGE = $(shell find . -name ${PACKAGE_FINGERPRINT} -not -path "${LOCAL_WORKSPACE}/*" -exec dirname {} +)
 
-IMAGE = openwrt-ar71xx-rust-bootstrap
+IMAGE = kasprzyk/openwrt-ar71xx-rust-bootstrap
 DOCKER = $(shell which docker)
 DOCKER_WORKSPACE = /build
 
