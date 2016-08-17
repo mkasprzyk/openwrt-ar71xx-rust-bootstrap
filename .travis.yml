@@ -7,4 +7,4 @@ before_install:
   - make toolchain
 
 script:
-  - make build
+  - make build PACKAGE=./rust-mq/mqttc
