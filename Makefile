@@ -11,7 +11,7 @@ DOCKER_WORKSPACE = /build
 CARGO_OPTS =
 
 TARGET=mips-unknown-linux-musl
-BUILD_CMD = "cd ${DOCKER_WORKSPACE} && cargo build --target=${TARGET} ${CARGO_OPTS}"
+BUILD_CMD = "source ~/.cargo/env && cd ${DOCKER_WORKSPACE} && cargo build --target=${TARGET} ${CARGO_OPTS}"
 
 check:
 	@if [ -z ${PACKAGE} ]; then echo "UNABLE TO FIND Cargo PACKAGE" && exit 1; fi
