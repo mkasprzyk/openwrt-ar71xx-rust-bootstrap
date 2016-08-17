@@ -1,5 +1,5 @@
 UNAME = $(shell uname)
-LOCAL_WORKSPACE = build
+LOCAL_WORKSPACE = /tmp/build
 
 PACKAGE_FINGERPRINT = 'Cargo.toml'
 PACKAGE = $(shell find . -name ${PACKAGE_FINGERPRINT} -not -path "${LOCAL_WORKSPACE}/*" -exec dirname {} +)
@@ -21,9 +21,10 @@ toolchain:
 
 build_linux: 
 	@mkdir -p ${LOCAL_WORKSPACE}
-	@cp -fr ${PACKAGE}/{Cargo.*,src} ${LOCAL_WORKSPACE}
+	@cp -fr ${PACKAGE} ${LOCAL_WORKSPACE}
 	@cp -fr .cargo ${LOCAL_WORKSPACE}
 	${DOCKER} run -v ${LOCAL_WORKSPACE}:${DOCKER_WORKSPACE} ${IMAGE} bash -c ${BUILD_CMD}
+	@cp -fr ${LOCAL_WORKSPACE} .
 
 build_osx: build_clean 
 	${DOCKER} run -d --name build ${IMAGE} bash -c "while true; do echo NOP && slepp 1; done"
