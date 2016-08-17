@@ -1,5 +1,5 @@
 UNAME = $(shell uname)
-LOCAL_WORKSPACE = ./build
+LOCAL_WORKSPACE = build
 
 PACKAGE_FINGERPRINT = 'Cargo.toml'
 PACKAGE = $(shell find . -name ${PACKAGE_FINGERPRINT} -not -path "${LOCAL_WORKSPACE}/*" -exec dirname {} +)
