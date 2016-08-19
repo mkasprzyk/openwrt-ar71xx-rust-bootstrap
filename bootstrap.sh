@@ -8,6 +8,7 @@ mkdir -p $SDK_ROOT
 
 apt-get update
 apt-get install -qq -y wget bzip2 curl cmake python2.7 libssl-dev
+apt-get clean
 
 curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain $RUST_RELEASE
 
@@ -17,6 +18,7 @@ rustup target add mips-unknown-linux-musl
 cd /tmp
     wget -q https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/$SDK_RELEASE
     tar xjf $SDK_RELEASE --strip-components=1 -C $SDK_ROOT
+    rm -rf /tmp/*
 cd -
 
 cd /usr/bin
